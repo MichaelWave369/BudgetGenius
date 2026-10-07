@@ -1,4 +1,4 @@
-# Architecture v0.1
+# Architecture v0.2
 
 ## Principle
 
@@ -11,19 +11,40 @@ The cost function is not just tokens or dollars. A route may consume money, inpu
 ### Result economy
 Can the work be avoided safely through an exact reusable result, deterministic computation, reusable evidence, or qualified cache?
 
+Rung 2 introduces an exact governed result cache whose key includes governance/state scope. Mutation and irreversible work cannot be replaced by a cached result.
+
 ### Information economy
-What is the minimum sufficient information that must move? Future modules include NBG resolution, context delta, retrieval pruning, tool projection, and reversible compression.
+What is the minimum sufficient information that must move?
+
+Rung 2 represents context as a typed `BudgetPacket`, supports exact context delta, deterministic tool projection, an NBG adaptive-resolution integration contract, and structured handoff packets. Generative compression and semantic caching remain out of scope until separately qualified.
 
 ### Compute economy
 Where is the cheapest qualified place to reason, considering model capability, provider cost, local residency, warm prefix state, queueing, and verification?
+
+Runtime economics begin in Rung 3.
 
 ## Control plane vs data plane
 
 **Control plane:** Board, Steward, BudgetGenius planners, qualification, learning, precedent.
 
-**Data plane:** BudgetPass enforcement, reservation, route execution, accounting, settlement.
+**Data plane:** BudgetPass enforcement, information pre-pass, reservation, route execution, accounting, settlement.
 
 The control plane may be sophisticated. The data plane must remain fast, deterministic, and auditable.
+
+## Information handling classes
+
+BudgetPacket segments declare handling classes rather than arriving as one untyped prompt blob:
+
+- locked,
+- lossless,
+- stable/cacheable,
+- NBG-adaptive,
+- retrievable,
+- compressible,
+- projectable,
+- droppable.
+
+Policy can therefore distinguish "must remain exact" from "may be reduced" without guessing from prose.
 
 ## State locality
 
