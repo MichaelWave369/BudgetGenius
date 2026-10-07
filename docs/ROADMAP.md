@@ -1,6 +1,6 @@
 # Roadmap
 
-## Rung 1 — deterministic spine
+## Rung 1 — deterministic spine ✅
 - Constitution and policy layers
 - Cognitive Mandate
 - hierarchical Banker
@@ -10,13 +10,14 @@
 - receipts and counterfactuals
 - CI
 
-## Rung 2 — information economy
+## Rung 2 — information economy ✅ candidate
 - exact governed cache
 - typed BudgetPacket
 - context delta
 - tool projection
 - NBG adaptive-resolution adapter
 - structured handoff packets
+- composable information pre-pass
 
 ## Rung 3 — runtime economics
 - live provider price tables

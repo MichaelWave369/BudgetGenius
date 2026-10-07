@@ -25,6 +25,9 @@ BudgetGenius control plane
       v
 BudgetPass data plane
       |
+Information economy
+      |  BudgetPacket / cache / delta / tools / NBG
+      v
 Local / API / Tools
       |
 Reality / verifier layer
@@ -36,22 +39,31 @@ Audit, regret, precedent, learning
 
 The fast path is deliberately boring. Heavy "Genius" reasoning belongs in the control plane, not in front of every cheap call.
 
-## Rung 1
+## Current implementation
 
-This repository currently implements the deterministic foundation:
+### Rung 1 — deterministic spine
 
-- a versioned Constitution,
+- versioned Constitution,
 - Cognitive Mandate validation,
 - hierarchical in-memory budget pools,
 - atomic reservation and settlement semantics,
 - hard quality/evidence/authority/risk qualification,
 - cheapest-qualified route selection,
-- an explicit BudgetPass state machine,
+- BudgetPass state machine,
 - append-only reference ledger,
-- counterfactual route receipts,
-- zero-dependency Node tests and CI.
+- counterfactual route receipts.
 
-Rung 1 intentionally does **not** implement semantic caching, learned routing, provider calls, generative compression, NBG integration, or autonomous Board deliberation. Those arrive only after the accounting and governance spine is testable.
+### Rung 2 — information economy
+
+- typed `BudgetPacket` segments,
+- exact governed result cache,
+- context delta,
+- deterministic tool-schema projection,
+- NBG adaptive-resolution contract,
+- structured downstream handoff packets,
+- composable information pre-pass.
+
+Rung 2 deliberately remains reversible and conservative. It does **not** introduce semantic caching or generative prompt compression.
 
 ## Core rule
 
@@ -80,4 +92,4 @@ SuperPhiVessel is the first integration target. Existing BrainC, BudgetCompute, 
 
 **If it isn't fun, it isn't finished.** Joy gets an exploration budget; it does not get to waive evidence.
 
-See [Architecture](docs/ARCHITECTURE.md), [Constitution](docs/CONSTITUTION.md), [Board & Steward](docs/BOARD-AND-STEWARD.md), [Cognitive Mandate](docs/COGNITIVE-MANDATE.md), and [BudgetPass Protocol](docs/BUDGET-PASS-PROTOCOL.md).
+See [Architecture](docs/ARCHITECTURE.md), [Information Economy](docs/INFORMATION-ECONOMY.md), [Constitution](docs/CONSTITUTION.md), [Board & Steward](docs/BOARD-AND-STEWARD.md), [Cognitive Mandate](docs/COGNITIVE-MANDATE.md), and [BudgetPass Protocol](docs/BUDGET-PASS-PROTOCOL.md).
