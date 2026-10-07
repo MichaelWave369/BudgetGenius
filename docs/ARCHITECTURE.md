@@ -1,4 +1,4 @@
-# Architecture v0.4
+# Architecture v0.5
 
 ## Principle
 
@@ -21,70 +21,96 @@ Rung 2 represents context as a typed `BudgetPacket`, supports exact context delt
 ### Compute economy
 Where is the cheapest qualified place to reason, considering model capability, provider cost, local residency, warm prefix state, queueing, and verification?
 
-Rung 3 introduced runtime-economic quotes that keep **real external spend** separate from **virtual comparison costs** for latency and movement.
-
-A route may be nominally cheaper but economically worse because it destroys a warm provider prefix, requires local model movement, sits behind a long queue, or misses an available batch discount.
+Rung 3 introduced runtime-economic quotes that keep real external spend separate from virtual comparison costs for latency and movement.
 
 ## Verification economy
 
 Rung 4 makes verification a first-class economic component.
 
-A route that appears cheap before verification may be expensive after:
+A route that appears cheap before verification may be expensive after verifier cost, escalation, retry, repair, and downstream correction.
 
-- verifier cost,
-- escalation,
-- retry,
-- repair,
-- downstream correction.
+Immediate savings are provisional. Verified savings require a successful verification policy and causal-cost accounting.
 
-Verifier metadata includes an explicit independence score so the system can prefer orthogonal checks where appropriate. A compiler/test harness is economically and epistemically different from asking the generator to judge itself.
+## Learning economy
 
-## Provisional vs verified savings
+Rung 5 turns verified receipts into conservative operating knowledge.
 
-Immediate savings are provisional.
-
-Verified savings are calculated only after the outcome passes its verification policy and attributable downstream costs are included.
+The learning layer may recommend a route only after enough comparable outcomes exist. The reference calibration uses a Wilson lower confidence bound rather than the raw historical success fraction.
 
 ~~~text
-baseline
-   |
-immediate route cost
-   |
-retry / escalation / repair
-   |
-verification horizon
-   |
-verified savings
+verified receipts
+      |
+context bucket
+      |
+route calibration
+      |
+conservative success bound
+      |
+governance qualification
+      |
+operating recommendation
 ~~~
 
-This prevents BudgetGenius from "saving" money by producing cheap work that creates expensive cleanup later.
+Learning never bypasses the existing mandate. A route with excellent historical performance still loses if it lacks authority, evidence, risk clearance, or budget.
 
-## Quality debt and lineage
+## Genius economic profiles
 
-Derived artifacts may carry quality debt from:
+BrainC-style roles can accumulate descriptive profiles about task success, causal cost, token usage, route history, and context use.
 
-- lossy transformation,
-- derivation depth,
-- weak verification,
-- stale or transformed sources.
+These profiles answer questions such as:
 
-Verification may reduce debt; source reopening may retire it.
+- Which role tends to succeed on this task class?
+- How much context does it normally consume?
+- Which routes have actually worked?
+- What does that success cost after repair and verification?
 
-The reference metric is intentionally simple and policy-oriented. The lineage record matters more than pretending epistemic uncertainty has one universal scalar.
+Profiles do not grant authority.
 
-## Counterfactual audit
+## Precedent and policy compilation
 
-Shadow evaluations preserve the chosen route and observed alternatives. When multiple successful routes are known, routing regret compares the chosen causal cost with the cheapest known successful counterfactual.
+Exceptional cases may be retained as precedents.
 
-Unknown counterfactual quality remains unknown.
+Repeated comparable precedent can produce a Level 2 operating-policy candidate only when:
+
+- enough comparable cases exist,
+- constitutional compliance is explicit,
+- the action is stable,
+- observed failure stays below policy threshold.
+
+The compiler cannot emit Level 0 constitutional changes.
+
+## Cognitive Grants and portfolios
+
+A Cognitive Grant funds an objective and preserves contingency separately from normal stage spend.
+
+~~~text
+grant
+  |
+  +-- probe
+  +-- investigate
+  +-- verify
+  +-- scale
+  |
+  +-- protected contingency
+~~~
+
+A portfolio allocator can rank competing proposals using operator/Board-supplied priority, decision value, expected uncertainty reduction, and requested cost. BudgetGenius optimizes allocation; it does not invent what the operator should value.
+
+## Request fusion and cognitive multicast
+
+Compatible read-only agents may share a foundation pass when governance scope, freshness/environment state, evidence source, and fusion topic match.
+
+One evidence computation can then multicast scoped projections to multiple consumers.
+
+Side-effecting requests remain unfused.
 
 ## Control plane vs data plane
 
-**Control plane:** Board, Steward, BudgetGenius planners, qualification, verification policy, learning, precedent.
+**Control plane:** Board, Steward, BudgetGenius planners, qualification, verification policy, calibration, precedent, grants, learning.
 
 **Data plane:** BudgetPass enforcement, information pre-pass, runtime-economic quote, reservation, execution, verifier invocation, accounting, settlement.
 
-The control plane may be sophisticated. The data plane must remain fast, deterministic, and auditable.
+**The control plane learns; the data plane executes.**
 
 ## Information handling classes
 
@@ -98,8 +124,6 @@ BudgetPacket segments declare handling classes rather than arriving as one untyp
 - compressible,
 - projectable,
 - droppable.
-
-Policy can therefore distinguish "must remain exact" from "may be reduced" without guessing from prose.
 
 ## Runtime state locality
 
@@ -120,18 +144,6 @@ BudgetGenius keeps two concepts distinct:
 - `effectiveEconomicCostUsd`: route-comparison score that may add policy-defined latency and movement shadow costs.
 
 The Banker never turns a virtual comparison cost into a real charge.
-
-## Progressive funding
-
-Cognition should be stage-gated where useful:
-
-~~~text
-probe -> investigate -> verify -> scale
-  |          |            |
- stop       stop         settle
-~~~
-
-An escalation path that is required to satisfy a quality guarantee must have funded contingency before execution.
 
 ## Learning direction
 
