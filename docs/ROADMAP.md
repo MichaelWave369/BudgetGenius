@@ -40,7 +40,7 @@
 - routing regret
 - composite Auditor report
 
-## Rung 5 — learned policy ✅ candidate
+## Rung 5 — learned policy ✅
 - empirical route calibration
 - conservative Wilson-bound success estimates
 - governance-bound contextual route recommendations
@@ -50,10 +50,22 @@
 - portfolio allocation
 - request fusion / cognitive multicast
 
-## Rung 6 — Board/Steward
+## Rung 6 — Board/Steward ✅ candidate
 - exception-triggered deliberation
-- rulings, dissent, precedent
+- bounded Board veto domains
+- Steward rulings + dissent
+- precedent/policy-candidate outputs
 - model/provider qualification portfolio
 - treasury/liquidity policy
 - bounded exploration capital
-- policy snapshot signing / compilation
+- signed compiled policy snapshots
+
+## Next integration track
+- SuperPhiVessel BudgetCompute adapter
+- Credit Governor / Banker bridge
+- GPU Runtime Governor residency feed
+- BrainC Cognitive Grant / topology bridge
+- NBG lineage + adaptive-resolution bridge
+- Reality Gate verifier adapter
+- persistent ledger / recovery store
+- real price snapshot importers

@@ -1,4 +1,4 @@
-# Architecture v0.5
+# Architecture v0.6
 
 ## Principle
 
@@ -6,19 +6,40 @@ BudgetGenius optimizes **proportionate intelligence**: the smallest trustworthy 
 
 The cost function is not just tokens or dollars. A route may consume money, input/output tokens, latency, GPU time, VRAM churn, bandwidth, provider quota, human attention, verification effort, and future context burden.
 
-## Three economies
+## Governance hierarchy
 
-### Result economy
+~~~text
+Operator values
+      |
+Level 0 Constitution
+      |
+Board strategy / Level 1 policy
+      |
+Steward ruling
+      |
+compiled signed policy snapshot
+      |
+BudgetGenius planning / Level 2 policy
+      |
+BudgetPass enforcement
+~~~
+
+Learning may influence Level 2 operating policy. It may not climb upward and rewrite its own authority.
+
+## Result economy
+
 Can the work be avoided safely through an exact reusable result, deterministic computation, reusable evidence, or qualified cache?
 
 Rung 2 introduced an exact governed result cache whose key includes governance/state scope. Mutation and irreversible work cannot be replaced by a cached result.
 
-### Information economy
+## Information economy
+
 What is the minimum sufficient information that must move?
 
-Rung 2 represents context as a typed `BudgetPacket`, supports exact context delta, deterministic tool projection, an NBG adaptive-resolution integration contract, and structured handoff packets. Generative compression and semantic caching remain out of scope until separately qualified.
+Rung 2 represents context as a typed `BudgetPacket`, supports exact context delta, deterministic tool projection, an NBG adaptive-resolution integration contract, and structured handoff packets.
 
-### Compute economy
+## Compute economy
+
 Where is the cheapest qualified place to reason, considering model capability, provider cost, local residency, warm prefix state, queueing, and verification?
 
 Rung 3 introduced runtime-economic quotes that keep real external spend separate from virtual comparison costs for latency and movement.
@@ -29,55 +50,59 @@ Rung 4 makes verification a first-class economic component.
 
 A route that appears cheap before verification may be expensive after verifier cost, escalation, retry, repair, and downstream correction.
 
-Immediate savings are provisional. Verified savings require a successful verification policy and causal-cost accounting.
+Immediate savings are provisional. Verified savings require successful verification and causal-cost accounting.
 
 ## Learning economy
 
 Rung 5 turns verified receipts into conservative operating knowledge.
 
-The learning layer may recommend a route only after enough comparable outcomes exist. The reference calibration uses a Wilson lower confidence bound rather than the raw historical success fraction.
+The learning layer may recommend a route only after enough comparable outcomes exist. The reference calibration uses a Wilson lower confidence bound rather than raw historical success.
+
+Learning never bypasses the mandate. Excellent history cannot grant authority.
+
+## Governance economy
+
+Rung 6 adds the Board and Steward.
+
+Ordinary requests do **not** convene the Board. Exception triggers identify situations where compiled operating policy is insufficient.
+
+The Board expresses bounded domain concerns. The Steward resolves tradeoffs after hard constraints and valid domain vetoes remove unacceptable candidates.
+
+This is intentionally not majority voting.
 
 ~~~text
-verified receipts
-      |
-context bucket
-      |
-route calibration
-      |
-conservative success bound
-      |
-governance qualification
-      |
-operating recommendation
+candidate strategies
+        |
+hard constraints
+        |
+valid domain vetoes
+        |
+eligible set
+        |
+utility / economic tradeoff
+        |
+Steward ruling
 ~~~
 
-Learning never bypasses the existing mandate. A route with excellent historical performance still loses if it lacks authority, evidence, risk clearance, or budget.
+## Qualification portfolio
 
-## Genius economic profiles
+Models and providers are governance assets with explicit lifecycle state:
 
-BrainC-style roles can accumulate descriptive profiles about task success, causal cost, token usage, route history, and context use.
+`UNQUALIFIED -> SHADOW -> LIMITED -> QUALIFIED -> PREFERRED`
 
-These profiles answer questions such as:
+Regression can suspend/demote them. A cheap new model does not enter production because somebody on the internet called it cracked.
 
-- Which role tends to succeed on this task class?
-- How much context does it normally consume?
-- Which routes have actually worked?
-- What does that success cost after repair and verification?
+## Treasury
 
-Profiles do not grant authority.
+The Treasury separates normal pools, exploration capital, and protected reserve.
 
-## Precedent and policy compilation
+The optimizer may spend from the pool granted to it. It cannot raid contingency or emergency liquidity without an allowed authorization path.
 
-Exceptional cases may be retained as precedents.
+## Signed policy snapshots
 
-Repeated comparable precedent can produce a Level 2 operating-policy candidate only when:
+Compiled policy is versioned and digestible.
 
-- enough comparable cases exist,
-- constitutional compliance is explicit,
-- the action is stable,
-- observed failure stays below policy threshold.
-
-The compiler cannot emit Level 0 constitutional changes.
+A snapshot binds Constitution, Board policy, operating policy, qualification portfolio, price table, directives, and precedents to one digest. Integrations may HMAC-sign/verify the digest so BudgetPass can reject tampered or stale policy.
 
 ## Cognitive Grants and portfolios
 
@@ -94,56 +119,34 @@ grant
   +-- protected contingency
 ~~~
 
-A portfolio allocator can rank competing proposals using operator/Board-supplied priority, decision value, expected uncertainty reduction, and requested cost. BudgetGenius optimizes allocation; it does not invent what the operator should value.
+Portfolio allocation uses operator/Board-supplied value. BudgetGenius optimizes allocation; it does not invent what matters.
 
 ## Request fusion and cognitive multicast
 
 Compatible read-only agents may share a foundation pass when governance scope, freshness/environment state, evidence source, and fusion topic match.
 
-One evidence computation can then multicast scoped projections to multiple consumers.
-
 Side-effecting requests remain unfused.
 
 ## Control plane vs data plane
 
-**Control plane:** Board, Steward, BudgetGenius planners, qualification, verification policy, calibration, precedent, grants, learning.
+**Control plane:** Board, Steward, qualification, Treasury policy, BudgetGenius planners, verification policy, calibration, precedent, grants, learning.
 
-**Data plane:** BudgetPass enforcement, information pre-pass, runtime-economic quote, reservation, execution, verifier invocation, accounting, settlement.
+**Data plane:** BudgetPass enforcement, information pre-pass, runtime quote, reservation, execution, verifier invocation, accounting, settlement.
 
-**The control plane learns; the data plane executes.**
+> **The control plane learns; the data plane executes.**
 
-## Information handling classes
+## Economic boundaries
 
-BudgetPacket segments declare handling classes rather than arriving as one untyped prompt blob:
+BudgetGenius keeps distinct:
 
-- locked,
-- lossless,
-- stable/cacheable,
-- NBG-adaptive,
-- retrievable,
-- compressible,
-- projectable,
-- droppable.
+- actual external monetary spend,
+- virtual movement/latency shadow costs,
+- quality/evidence signals,
+- provisional savings,
+- verified causal savings,
+- protected liquidity.
 
-## Runtime state locality
-
-Runtime state is economic information:
-
-- model residency in VRAM,
-- warm provider/model prompt prefixes,
-- queue wait,
-- provider batch capability.
-
-Later integrations may extend the same contract to authenticated tool sessions, build/compiler caches, browser state, and agent working state.
-
-## Real dollars vs shadow prices
-
-BudgetGenius keeps two concepts distinct:
-
-- `estimatedCostUsd`: external monetary spend used for hard budget reservation.
-- `effectiveEconomicCostUsd`: route-comparison score that may add policy-defined latency and movement shadow costs.
-
-The Banker never turns a virtual comparison cost into a real charge.
+Collapsing those into one number would be convenient and wrong, humanity's favorite spreadsheet feature.
 
 ## Learning direction
 

@@ -4,9 +4,7 @@
 
 > BudgetGenius does not minimize intelligence. It minimizes wasted intelligence.
 
-BudgetGenius is a control-plane and data-plane architecture for deciding how much cognition a task deserves, which qualified route should perform it, what context should move, how cost is reserved and settled, and how the system proves afterward that the claimed savings were real.
-
-It began with a simple question: can an agent gateway reduce token/API spend before and after a call? The answer turned into a broader principle:
+BudgetGenius is a governed cognitive-economics architecture for deciding how much cognition an objective deserves, which qualified route should perform it, what information should move, how resources are reserved, and whether claimed savings survived verification.
 
 > **Purchase intelligence incrementally, only as uncertainty and consequence justify it.**
 
@@ -17,11 +15,13 @@ Operator values
       |
 Budget Constitution
       |
-Board + Steward
-      |  Cognitive Mandate
+Board of Directors
+      |
+Steward
+      |  signed policy / Cognitive Mandate
       v
 BudgetGenius control plane
-      |  qualified route plan
+      |  qualified route / grant / topology
       v
 BudgetPass data plane
       |
@@ -43,90 +43,56 @@ Auditor / regret / verified savings
 Calibration / precedent / grants / fusion
       |
 compiled operating policy
+      +-----------------------------> fast path
 ~~~
 
-The fast path is deliberately boring. Heavy "Genius" reasoning belongs in the control plane, not in front of every cheap call.
+Heavy "Genius" reasoning belongs in the control plane. The fast path is deliberately boring.
 
 ## Current implementation
 
 ### Rung 1 — deterministic spine
-- versioned Constitution,
-- Cognitive Mandate validation,
-- hierarchical budget pools,
-- atomic reservation and settlement,
-- hard quality/evidence/authority/risk qualification,
-- cheapest-qualified route selection,
-- BudgetPass state machine,
-- ledger and counterfactual receipts.
+Cognitive Mandates, Constitution, hierarchical budgets, reservation/settlement, route qualification, BudgetPass state machine, ledger, counterfactual receipts.
 
 ### Rung 2 — information economy
-- typed `BudgetPacket` segments,
-- exact governed result cache,
-- context delta,
-- deterministic tool projection,
-- NBG adaptive-resolution contract,
-- structured handoff packets,
-- composable information pre-pass.
+Typed `BudgetPacket`, governed exact cache, context delta, tool projection, NBG adaptive-resolution contract, structured handoffs.
 
 ### Rung 3 — runtime economics
-- versioned injectable provider price snapshots,
-- provider adapter contract,
-- provider/model session affinity,
-- warm-prefix and switch-tax quotes,
-- local GPU residency / movement-cost model,
-- queue shadow pricing and backpressure,
-- batch eligibility and discounted quotes,
-- runtime route selection over qualified candidates.
+Price snapshots, provider adapters, session/prefix affinity, switch tax, GPU residency, movement cost, queue/backpressure, batch-aware routing.
 
 ### Rung 4 — verification and audit
-- verifier registry with mechanism/independence metadata,
-- verification policy aggregation,
-- funded escalation-bond semantics,
-- provisional vs verified savings,
-- causal downstream-cost accounting,
-- non-double-counting savings waterfall,
-- quality debt + derivation lineage,
-- shadow evaluation records,
-- routing regret,
-- composite Auditor reports.
+Verifier registry, independence metadata, escalation bonds, provisional vs verified savings, causal cleanup cost, quality debt, lineage, shadow evaluation, routing regret.
 
 ### Rung 5 — learned policy
-- empirical route calibration from verified outcomes,
-- conservative Wilson-bound success estimates,
-- governance-bound contextual route recommendations,
-- descriptive Genius economic profiles,
-- precedent -> Level 2 policy candidates,
-- Cognitive Grants with protected contingency,
-- portfolio allocation,
-- compatible request fusion and cognitive multicast.
+Empirical calibration, conservative confidence bounds, governance-bound route learning, Genius economic profiles, precedent compiler, Cognitive Grants, portfolio allocation, request fusion / cognitive multicast.
 
-Real dollars, virtual economic costs, quality signals, and verified economic outcomes remain separate concepts.
+### Rung 6 — Board / Steward
+Exception-triggered governance, bounded veto domains, Steward rulings and dissent, qualification portfolio, Treasury/liquidity policy, bounded exploration capital, signed compiled policy snapshots.
 
 ## Core rule
 
 **Governance determines which routes are qualified. Economics chooses among qualified routes. Verification decides whether the savings were real. Learning may improve operating policy, but it may not rewrite governance.**
 
-A cheaper route that violates a quality floor, evidence floor, authority boundary, or risk ceiling is not a bargain. It is disqualified.
+A cheaper route that violates quality, evidence, authority, risk, or liquidity constraints is not a bargain. It is disqualified.
 
-## Roles
+## Governance roles
 
 | Role | Responsibility |
 | --- | --- |
-| Board | Strategy, portfolios, policy, precedent |
-| Steward | Resolve tradeoffs into a governed mandate |
-| Banker | Leases, reservations, liquidity, settlement |
-| Packet Processor | Context economy, cache, NBG resolution, prompt construction |
+| Operator | Values, Level 0 constraints, risk appetite |
+| Board | Strategy, Level 1 policy, Treasury, qualification |
+| Steward | Resolve exceptional tradeoffs into rulings |
+| Banker | Leases, reservations, settlement |
+| Packet Processor | Information economy |
 | Designer | Candidate cognitive topologies |
-| Coder | Executable provider/runtime plan |
-| Auditor | Verification, receipts, regret, quality debt, counterfactuals |
-| Operator | Values, hard constraints, risk appetite |
+| Coder | Provider/runtime execution plans |
+| Auditor | Verification, causal savings, regret, debt |
 
 ## Integration target
 
-SuperPhiVessel is the first integration target. Existing BrainC, BudgetCompute, Credit Governor, GPU Runtime Governor, NBG, and Reality Gate systems should be adapted to BudgetGenius rather than replaced.
+SuperPhiVessel is the first integration target. BrainC, BudgetCompute, Credit Governor, GPU Runtime Governor, NBG, and Reality Gate are integration points, not components this repository intends to bulldoze because software projects apparently enjoy eating their parents.
 
 ## Lab axiom
 
 **If it isn't fun, it isn't finished.** Joy gets an exploration budget; it does not get to waive evidence.
 
-See [Architecture](docs/ARCHITECTURE.md), [Information Economy](docs/INFORMATION-ECONOMY.md), [Runtime Economics](docs/RUNTIME-ECONOMICS.md), [Verification & Audit](docs/VERIFICATION-AND-AUDIT.md), [Learning & Portfolio](docs/LEARNING-AND-PORTFOLIO.md), [Constitution](docs/CONSTITUTION.md), [Board & Steward](docs/BOARD-AND-STEWARD.md), [Cognitive Mandate](docs/COGNITIVE-MANDATE.md), and [BudgetPass Protocol](docs/BUDGET-PASS-PROTOCOL.md).
+See [Architecture](docs/ARCHITECTURE.md), [Board & Steward](docs/BOARD-AND-STEWARD.md), [Information Economy](docs/INFORMATION-ECONOMY.md), [Runtime Economics](docs/RUNTIME-ECONOMICS.md), [Verification & Audit](docs/VERIFICATION-AND-AUDIT.md), [Learning & Portfolio](docs/LEARNING-AND-PORTFOLIO.md), [Constitution](docs/CONSTITUTION.md), [Cognitive Mandate](docs/COGNITIVE-MANDATE.md), and [BudgetPass Protocol](docs/BUDGET-PASS-PROTOCOL.md).
