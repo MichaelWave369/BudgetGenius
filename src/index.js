@@ -30,3 +30,8 @@ export * from "./genius-profile.js";
 export * from "./precedent-compiler.js";
 export * from "./cognitive-grant.js";
 export * from "./request-fusion.js";
+export * from "./board.js";
+export * from "./steward.js";
+export * from "./qualification-portfolio.js";
+export * from "./treasury.js";
+export * from "./policy-snapshot.js";
