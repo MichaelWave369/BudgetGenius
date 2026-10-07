@@ -40,7 +40,9 @@ Ledger + NBG / memory
       |
 Auditor / regret / verified savings
       |
-precedent / learning
+Calibration / precedent / grants / fusion
+      |
+compiled operating policy
 ~~~
 
 The fast path is deliberately boring. Heavy "Genius" reasoning belongs in the control plane, not in front of every cheap call.
@@ -88,11 +90,21 @@ The fast path is deliberately boring. Heavy "Genius" reasoning belongs in the co
 - routing regret,
 - composite Auditor reports.
 
-Real dollars, virtual economic costs, and verified economic outcomes remain separate concepts.
+### Rung 5 — learned policy
+- empirical route calibration from verified outcomes,
+- conservative Wilson-bound success estimates,
+- governance-bound contextual route recommendations,
+- descriptive Genius economic profiles,
+- precedent -> Level 2 policy candidates,
+- Cognitive Grants with protected contingency,
+- portfolio allocation,
+- compatible request fusion and cognitive multicast.
+
+Real dollars, virtual economic costs, quality signals, and verified economic outcomes remain separate concepts.
 
 ## Core rule
 
-**Governance determines which routes are qualified. Economics chooses among qualified routes. Verification decides whether the savings were real.**
+**Governance determines which routes are qualified. Economics chooses among qualified routes. Verification decides whether the savings were real. Learning may improve operating policy, but it may not rewrite governance.**
 
 A cheaper route that violates a quality floor, evidence floor, authority boundary, or risk ceiling is not a bargain. It is disqualified.
 
@@ -117,4 +129,4 @@ SuperPhiVessel is the first integration target. Existing BrainC, BudgetCompute, 
 
 **If it isn't fun, it isn't finished.** Joy gets an exploration budget; it does not get to waive evidence.
 
-See [Architecture](docs/ARCHITECTURE.md), [Information Economy](docs/INFORMATION-ECONOMY.md), [Runtime Economics](docs/RUNTIME-ECONOMICS.md), [Verification & Audit](docs/VERIFICATION-AND-AUDIT.md), [Constitution](docs/CONSTITUTION.md), [Board & Steward](docs/BOARD-AND-STEWARD.md), [Cognitive Mandate](docs/COGNITIVE-MANDATE.md), and [BudgetPass Protocol](docs/BUDGET-PASS-PROTOCOL.md).
+See [Architecture](docs/ARCHITECTURE.md), [Information Economy](docs/INFORMATION-ECONOMY.md), [Runtime Economics](docs/RUNTIME-ECONOMICS.md), [Verification & Audit](docs/VERIFICATION-AND-AUDIT.md), [Learning & Portfolio](docs/LEARNING-AND-PORTFOLIO.md), [Constitution](docs/CONSTITUTION.md), [Board & Steward](docs/BOARD-AND-STEWARD.md), [Cognitive Mandate](docs/COGNITIVE-MANDATE.md), and [BudgetPass Protocol](docs/BUDGET-PASS-PROTOCOL.md).
