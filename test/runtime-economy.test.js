@@ -61,7 +61,7 @@ test("session affinity values a confirmed warm prefix and exposes switch tax", (
 
   const stay = quoteAffinity({
     registry: affinity, sessionId: "s1", providerId: "p", modelId: "warm",
-    prefixFingerprint: "prefix-A", carriedInputTokens: 10_000, outputTokens: 0,
+    prefixFingerprint: "prefix-A", inputTokens: 10_000, cacheablePrefixTokens: 10_000, outputTokens: 0,
     priceTable: prices, now: 1001
   });
   assert.equal(stay.warm, true);
@@ -69,11 +69,26 @@ test("session affinity values a confirmed warm prefix and exposes switch tax", (
 
   const move = quoteAffinity({
     registry: affinity, sessionId: "s1", providerId: "p", modelId: "cheap",
-    prefixFingerprint: "prefix-A", carriedInputTokens: 10_000, outputTokens: 0,
+    prefixFingerprint: "prefix-A", inputTokens: 10_000, cacheablePrefixTokens: 10_000, outputTokens: 0,
     priceTable: prices, now: 1001
   });
   assert.equal(move.warm, false);
   assert.equal(move.switchTaxUsd, 0.005);
+});
+
+test("warm-prefix billing never exceeds the declared cacheable prefix", () => {
+  const affinity = new SessionAffinityRegistry();
+  affinity.set({
+    sessionId: "s1", providerId: "p", modelId: "warm",
+    prefixFingerprint: "prefix-A", cacheableTokens: 10_000, now: 1000
+  });
+  const quote = quoteAffinity({
+    registry: affinity, sessionId: "s1", providerId: "p", modelId: "warm",
+    prefixFingerprint: "prefix-A", inputTokens: 10_000, cacheablePrefixTokens: 2_000,
+    outputTokens: 0, priceTable: prices, now: 1001
+  });
+  assert.equal(quote.cachedInputTokens, 2_000);
+  assert.equal(quote.routeQuote.costUsd, 0.041);
 });
 
 test("GPU residency charges virtual movement only when model is cold", () => {
