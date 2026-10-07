@@ -51,7 +51,8 @@ export function quoteRuntimeRoute({
       providerId: route.providerId,
       modelId: route.modelId,
       prefixFingerprint: route.prefixFingerprint,
-      carriedInputTokens: inputTokens,
+      inputTokens,
+      cacheablePrefixTokens: prefixTokens,
       outputTokens,
       priceTable,
       now
