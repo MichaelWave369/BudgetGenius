@@ -48,7 +48,8 @@ export function quoteAffinity({
   providerId,
   modelId,
   prefixFingerprint,
-  carriedInputTokens,
+  inputTokens,
+  cacheablePrefixTokens = 0,
   outputTokens,
   priceTable,
   now = Date.now()
@@ -60,15 +61,16 @@ export function quoteAffinity({
     affinity.modelId === modelId &&
     affinity.prefixFingerprint === prefixFingerprint;
 
+  const eligiblePrefixTokens = Math.min(inputTokens, cacheablePrefixTokens);
   const cachedInputTokens = warm
-    ? Math.min(carriedInputTokens, affinity.cacheableTokens)
+    ? Math.min(eligiblePrefixTokens, affinity.cacheableTokens)
     : 0;
 
   const routeQuote = quoteTokenCost({
     priceTable,
     providerId,
     modelId,
-    inputTokens: carriedInputTokens,
+    inputTokens,
     cachedInputTokens,
     outputTokens
   });
@@ -76,9 +78,9 @@ export function quoteAffinity({
   let stayWarmReferenceUsd = null;
   let switchTaxUsd = 0;
   if (affinity && !warm) {
-    const comparableTokens = Math.min(carriedInputTokens, affinity.cacheableTokens);
+    const comparableTokens = Math.min(eligiblePrefixTokens, affinity.cacheableTokens);
     const current = priceTable.get(affinity.providerId, affinity.modelId);
-    if (current) {
+    if (current && comparableTokens > 0) {
       const stay = quoteTokenCost({
         priceTable,
         providerId: affinity.providerId,
