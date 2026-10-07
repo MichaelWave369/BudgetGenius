@@ -1,4 +1,4 @@
-# Architecture v0.2
+# Architecture v0.3
 
 ## Principle
 
@@ -11,7 +11,7 @@ The cost function is not just tokens or dollars. A route may consume money, inpu
 ### Result economy
 Can the work be avoided safely through an exact reusable result, deterministic computation, reusable evidence, or qualified cache?
 
-Rung 2 introduces an exact governed result cache whose key includes governance/state scope. Mutation and irreversible work cannot be replaced by a cached result.
+Rung 2 introduced an exact governed result cache whose key includes governance/state scope. Mutation and irreversible work cannot be replaced by a cached result.
 
 ### Information economy
 What is the minimum sufficient information that must move?
@@ -21,13 +21,21 @@ Rung 2 represents context as a typed `BudgetPacket`, supports exact context delt
 ### Compute economy
 Where is the cheapest qualified place to reason, considering model capability, provider cost, local residency, warm prefix state, queueing, and verification?
 
-Runtime economics begin in Rung 3.
+Rung 3 introduces runtime-economic quotes that keep **real external spend** separate from **virtual comparison costs** for latency and movement.
+
+A route may be nominally cheaper but economically worse because:
+
+- it destroys a warm provider prefix,
+- it requires loading/evicting a local model,
+- its execution queue is congested,
+- it misses an available batch discount,
+- it would exceed a task's useful latency window.
 
 ## Control plane vs data plane
 
 **Control plane:** Board, Steward, BudgetGenius planners, qualification, learning, precedent.
 
-**Data plane:** BudgetPass enforcement, information pre-pass, reservation, route execution, accounting, settlement.
+**Data plane:** BudgetPass enforcement, information pre-pass, runtime-economic quote, reservation, route execution, accounting, settlement.
 
 The control plane may be sophisticated. The data plane must remain fast, deterministic, and auditable.
 
@@ -46,18 +54,27 @@ BudgetPacket segments declare handling classes rather than arriving as one untyp
 
 Policy can therefore distinguish "must remain exact" from "may be reduced" without guessing from prose.
 
-## State locality
+## Runtime state locality
 
-Routing should eventually treat these as first-class state:
+Rung 3 begins treating runtime state as economic information:
 
 - model residency in VRAM,
-- warm provider prompt prefixes,
-- NBG/context locality,
-- authenticated tool sessions,
-- build/compiler caches,
-- agent working state.
+- warm provider/model prompt prefixes,
+- queue wait,
+- provider batch capability.
+
+Later integrations may extend the same contract to authenticated tool sessions, build/compiler caches, browser state, and agent working state.
 
 A route's sticker price is insufficient if changing routes destroys valuable warm state.
+
+## Real dollars vs shadow prices
+
+BudgetGenius keeps two concepts distinct:
+
+- `estimatedCostUsd`: external monetary spend used for hard budget reservation.
+- `effectiveEconomicCostUsd`: route-comparison score that may add policy-defined latency and movement shadow costs.
+
+The Banker never turns a virtual comparison cost into a real charge.
 
 ## Progressive funding
 
