@@ -19,7 +19,7 @@
 - structured handoff packets
 - composable information pre-pass
 
-## Rung 3 — runtime economics ✅ candidate
+## Rung 3 — runtime economics ✅
 - versioned provider price snapshots
 - provider adapter registry / dispatch contract
 - GPU residency and movement-cost adapter
@@ -29,14 +29,16 @@
 - batch eligibility and discount-aware quotes
 - runtime route selector using real spend plus virtual movement/latency cost
 
-## Rung 4 — verification and audit
+## Rung 4 — verification and audit ✅ candidate
 - verifier registry
 - orthogonality/independence metadata
-- escalation bonds
+- funded escalation-bond semantics
 - verified vs provisional savings
+- savings waterfall accounting
 - quality debt and lineage
 - counterfactual/shadow evaluation
 - routing regret
+- composite Auditor report
 
 ## Rung 5 — learned policy
 - empirical success calibration

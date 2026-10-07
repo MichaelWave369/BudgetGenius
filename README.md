@@ -33,11 +33,14 @@ Runtime economy
       v
 Local / API / Tools
       |
-Reality / verifier layer
-      |
+Verification economy
+      |  independent checks / quality debt / shadow eval
+      v
 Ledger + NBG / memory
       |
-Audit, regret, precedent, learning
+Auditor / regret / verified savings
+      |
+precedent / learning
 ~~~
 
 The fast path is deliberately boring. Heavy "Genius" reasoning belongs in the control plane, not in front of every cheap call.
@@ -73,11 +76,23 @@ The fast path is deliberately boring. Heavy "Genius" reasoning belongs in the co
 - batch eligibility and discounted quotes,
 - runtime route selection over qualified candidates.
 
-Real dollars and virtual economic costs are deliberately separate. Budget reservations use expected external spend; runtime comparison may additionally price latency and model movement.
+### Rung 4 — verification and audit
+- verifier registry with mechanism/independence metadata,
+- verification policy aggregation,
+- funded escalation-bond semantics,
+- provisional vs verified savings,
+- causal downstream-cost accounting,
+- non-double-counting savings waterfall,
+- quality debt + derivation lineage,
+- shadow evaluation records,
+- routing regret,
+- composite Auditor reports.
+
+Real dollars, virtual economic costs, and verified economic outcomes remain separate concepts.
 
 ## Core rule
 
-**Governance determines which routes are qualified. Economics chooses among qualified routes.**
+**Governance determines which routes are qualified. Economics chooses among qualified routes. Verification decides whether the savings were real.**
 
 A cheaper route that violates a quality floor, evidence floor, authority boundary, or risk ceiling is not a bargain. It is disqualified.
 
@@ -91,7 +106,7 @@ A cheaper route that violates a quality floor, evidence floor, authority boundar
 | Packet Processor | Context economy, cache, NBG resolution, prompt construction |
 | Designer | Candidate cognitive topologies |
 | Coder | Executable provider/runtime plan |
-| Auditor | Receipts, regret, quality debt, counterfactuals |
+| Auditor | Verification, receipts, regret, quality debt, counterfactuals |
 | Operator | Values, hard constraints, risk appetite |
 
 ## Integration target
@@ -102,4 +117,4 @@ SuperPhiVessel is the first integration target. Existing BrainC, BudgetCompute, 
 
 **If it isn't fun, it isn't finished.** Joy gets an exploration budget; it does not get to waive evidence.
 
-See [Architecture](docs/ARCHITECTURE.md), [Information Economy](docs/INFORMATION-ECONOMY.md), [Runtime Economics](docs/RUNTIME-ECONOMICS.md), [Constitution](docs/CONSTITUTION.md), [Board & Steward](docs/BOARD-AND-STEWARD.md), [Cognitive Mandate](docs/COGNITIVE-MANDATE.md), and [BudgetPass Protocol](docs/BUDGET-PASS-PROTOCOL.md).
+See [Architecture](docs/ARCHITECTURE.md), [Information Economy](docs/INFORMATION-ECONOMY.md), [Runtime Economics](docs/RUNTIME-ECONOMICS.md), [Verification & Audit](docs/VERIFICATION-AND-AUDIT.md), [Constitution](docs/CONSTITUTION.md), [Board & Steward](docs/BOARD-AND-STEWARD.md), [Cognitive Mandate](docs/COGNITIVE-MANDATE.md), and [BudgetPass Protocol](docs/BUDGET-PASS-PROTOCOL.md).

@@ -1,4 +1,4 @@
-# Architecture v0.3
+# Architecture v0.4
 
 ## Principle
 
@@ -21,21 +21,68 @@ Rung 2 represents context as a typed `BudgetPacket`, supports exact context delt
 ### Compute economy
 Where is the cheapest qualified place to reason, considering model capability, provider cost, local residency, warm prefix state, queueing, and verification?
 
-Rung 3 introduces runtime-economic quotes that keep **real external spend** separate from **virtual comparison costs** for latency and movement.
+Rung 3 introduced runtime-economic quotes that keep **real external spend** separate from **virtual comparison costs** for latency and movement.
 
-A route may be nominally cheaper but economically worse because:
+A route may be nominally cheaper but economically worse because it destroys a warm provider prefix, requires local model movement, sits behind a long queue, or misses an available batch discount.
 
-- it destroys a warm provider prefix,
-- it requires loading/evicting a local model,
-- its execution queue is congested,
-- it misses an available batch discount,
-- it would exceed a task's useful latency window.
+## Verification economy
+
+Rung 4 makes verification a first-class economic component.
+
+A route that appears cheap before verification may be expensive after:
+
+- verifier cost,
+- escalation,
+- retry,
+- repair,
+- downstream correction.
+
+Verifier metadata includes an explicit independence score so the system can prefer orthogonal checks where appropriate. A compiler/test harness is economically and epistemically different from asking the generator to judge itself.
+
+## Provisional vs verified savings
+
+Immediate savings are provisional.
+
+Verified savings are calculated only after the outcome passes its verification policy and attributable downstream costs are included.
+
+~~~text
+baseline
+   |
+immediate route cost
+   |
+retry / escalation / repair
+   |
+verification horizon
+   |
+verified savings
+~~~
+
+This prevents BudgetGenius from "saving" money by producing cheap work that creates expensive cleanup later.
+
+## Quality debt and lineage
+
+Derived artifacts may carry quality debt from:
+
+- lossy transformation,
+- derivation depth,
+- weak verification,
+- stale or transformed sources.
+
+Verification may reduce debt; source reopening may retire it.
+
+The reference metric is intentionally simple and policy-oriented. The lineage record matters more than pretending epistemic uncertainty has one universal scalar.
+
+## Counterfactual audit
+
+Shadow evaluations preserve the chosen route and observed alternatives. When multiple successful routes are known, routing regret compares the chosen causal cost with the cheapest known successful counterfactual.
+
+Unknown counterfactual quality remains unknown.
 
 ## Control plane vs data plane
 
-**Control plane:** Board, Steward, BudgetGenius planners, qualification, learning, precedent.
+**Control plane:** Board, Steward, BudgetGenius planners, qualification, verification policy, learning, precedent.
 
-**Data plane:** BudgetPass enforcement, information pre-pass, runtime-economic quote, reservation, route execution, accounting, settlement.
+**Data plane:** BudgetPass enforcement, information pre-pass, runtime-economic quote, reservation, execution, verifier invocation, accounting, settlement.
 
 The control plane may be sophisticated. The data plane must remain fast, deterministic, and auditable.
 
@@ -56,7 +103,7 @@ Policy can therefore distinguish "must remain exact" from "may be reduced" witho
 
 ## Runtime state locality
 
-Rung 3 begins treating runtime state as economic information:
+Runtime state is economic information:
 
 - model residency in VRAM,
 - warm provider/model prompt prefixes,
@@ -64,8 +111,6 @@ Rung 3 begins treating runtime state as economic information:
 - provider batch capability.
 
 Later integrations may extend the same contract to authenticated tool sessions, build/compiler caches, browser state, and agent working state.
-
-A route's sticker price is insufficient if changing routes destroys valuable warm state.
 
 ## Real dollars vs shadow prices
 

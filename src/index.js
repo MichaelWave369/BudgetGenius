@@ -19,3 +19,8 @@ export * from "./gpu-residency.js";
 export * from "./backpressure.js";
 export * from "./provider-adapter.js";
 export * from "./runtime-economy.js";
+export * from "./verifier-registry.js";
+export * from "./quality-debt.js";
+export * from "./savings-audit.js";
+export * from "./shadow-eval.js";
+export * from "./auditor.js";
