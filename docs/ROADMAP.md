@@ -10,7 +10,7 @@
 - receipts and counterfactuals
 - CI
 
-## Rung 2 — information economy ✅ candidate
+## Rung 2 — information economy ✅
 - exact governed cache
 - typed BudgetPacket
 - context delta
@@ -19,14 +19,15 @@
 - structured handoff packets
 - composable information pre-pass
 
-## Rung 3 — runtime economics
-- live provider price tables
-- provider adapters
-- GPU residency adapter
+## Rung 3 — runtime economics ✅ candidate
+- versioned provider price snapshots
+- provider adapter registry / dispatch contract
+- GPU residency and movement-cost adapter
 - prompt-prefix/session affinity
-- switch/migration cost
-- queueing and backpressure
-- batch eligibility
+- switch-tax accounting
+- queue shadow pricing and backpressure
+- batch eligibility and discount-aware quotes
+- runtime route selector using real spend plus virtual movement/latency cost
 
 ## Rung 4 — verification and audit
 - verifier registry

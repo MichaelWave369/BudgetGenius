@@ -28,6 +28,9 @@ BudgetPass data plane
 Information economy
       |  BudgetPacket / cache / delta / tools / NBG
       v
+Runtime economy
+      |  prices / affinity / GPU / queues / batch
+      v
 Local / API / Tools
       |
 Reality / verifier layer
@@ -42,28 +45,35 @@ The fast path is deliberately boring. Heavy "Genius" reasoning belongs in the co
 ## Current implementation
 
 ### Rung 1 — deterministic spine
-
 - versioned Constitution,
 - Cognitive Mandate validation,
-- hierarchical in-memory budget pools,
-- atomic reservation and settlement semantics,
+- hierarchical budget pools,
+- atomic reservation and settlement,
 - hard quality/evidence/authority/risk qualification,
 - cheapest-qualified route selection,
 - BudgetPass state machine,
-- append-only reference ledger,
-- counterfactual route receipts.
+- ledger and counterfactual receipts.
 
 ### Rung 2 — information economy
-
 - typed `BudgetPacket` segments,
 - exact governed result cache,
 - context delta,
-- deterministic tool-schema projection,
+- deterministic tool projection,
 - NBG adaptive-resolution contract,
-- structured downstream handoff packets,
+- structured handoff packets,
 - composable information pre-pass.
 
-Rung 2 deliberately remains reversible and conservative. It does **not** introduce semantic caching or generative prompt compression.
+### Rung 3 — runtime economics
+- versioned injectable provider price snapshots,
+- provider adapter contract,
+- provider/model session affinity,
+- warm-prefix and switch-tax quotes,
+- local GPU residency / movement-cost model,
+- queue shadow pricing and backpressure,
+- batch eligibility and discounted quotes,
+- runtime route selection over qualified candidates.
+
+Real dollars and virtual economic costs are deliberately separate. Budget reservations use expected external spend; runtime comparison may additionally price latency and model movement.
 
 ## Core rule
 
@@ -92,4 +102,4 @@ SuperPhiVessel is the first integration target. Existing BrainC, BudgetCompute, 
 
 **If it isn't fun, it isn't finished.** Joy gets an exploration budget; it does not get to waive evidence.
 
-See [Architecture](docs/ARCHITECTURE.md), [Information Economy](docs/INFORMATION-ECONOMY.md), [Constitution](docs/CONSTITUTION.md), [Board & Steward](docs/BOARD-AND-STEWARD.md), [Cognitive Mandate](docs/COGNITIVE-MANDATE.md), and [BudgetPass Protocol](docs/BUDGET-PASS-PROTOCOL.md).
+See [Architecture](docs/ARCHITECTURE.md), [Information Economy](docs/INFORMATION-ECONOMY.md), [Runtime Economics](docs/RUNTIME-ECONOMICS.md), [Constitution](docs/CONSTITUTION.md), [Board & Steward](docs/BOARD-AND-STEWARD.md), [Cognitive Mandate](docs/COGNITIVE-MANDATE.md), and [BudgetPass Protocol](docs/BUDGET-PASS-PROTOCOL.md).
