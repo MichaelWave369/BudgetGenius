@@ -29,7 +29,7 @@
 - batch eligibility and discount-aware quotes
 - runtime route selector using real spend plus virtual movement/latency cost
 
-## Rung 4 — verification and audit ✅ candidate
+## Rung 4 — verification and audit ✅
 - verifier registry
 - orthogonality/independence metadata
 - funded escalation-bond semantics
@@ -40,12 +40,14 @@
 - routing regret
 - composite Auditor report
 
-## Rung 5 — learned policy
-- empirical success calibration
-- contextual route learning
+## Rung 5 — learned policy ✅ candidate
+- empirical route calibration
+- conservative Wilson-bound success estimates
+- governance-bound contextual route recommendations
 - Genius economic profiles
-- precedent -> policy compiler
-- cognitive grants and portfolio allocation
+- precedent -> Level 2 policy compiler
+- Cognitive Grants
+- portfolio allocation
 - request fusion / cognitive multicast
 
 ## Rung 6 — Board/Steward
@@ -54,3 +56,4 @@
 - model/provider qualification portfolio
 - treasury/liquidity policy
 - bounded exploration capital
+- policy snapshot signing / compilation
