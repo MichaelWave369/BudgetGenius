@@ -44,8 +44,8 @@ test("learned routing refuses under-sampled cheap routes and uses verified causa
     riskClass: RISK_CLASS.NORMAL
   });
 
-  for (let i = 0; i < 40; i += 1) {
-    book.record({ contextKey: key, routeId: "mid", ok: i < 39, totalCausalCostUsd: 0.02 });
+  for (let i = 0; i < 100; i += 1) {
+    book.record({ contextKey: key, routeId: "mid", ok: i < 99, totalCausalCostUsd: 0.02 });
   }
   for (let i = 0; i < 3; i += 1) {
     book.record({ contextKey: key, routeId: "cheap", ok: true, totalCausalCostUsd: 0.001 });
@@ -64,6 +64,35 @@ test("learned routing refuses under-sampled cheap routes and uses verified causa
 
   assert.equal(result.selected.routeId, "mid");
   assert.equal(result.evaluations.find((row) => row.routeId === "cheap").reason, "INSUFFICIENT_CALIBRATION");
+});
+
+test("learned routing cannot promote a calibrated route past an authority boundary", () => {
+  const book = new RouteCalibrationBook();
+  const key = buildContextKey({
+    taskClass: "code",
+    effectClass: EFFECT_CLASS.PURE,
+    riskClass: RISK_CLASS.NORMAL
+  });
+  for (let i = 0; i < 100; i += 1) {
+    book.record({ contextKey: key, routeId: "mutator", ok: true, totalCausalCostUsd: 0.001 });
+  }
+
+  const result = recommendLearnedRoute({
+    calibrationBook: book,
+    contextKey: key,
+    mandate,
+    minSamples: 20,
+    candidateRoutes: [{
+      routeId: "mutator",
+      evidenceScore: 0.99,
+      riskScore: 0.01,
+      requiredAuthority: ["repo:merge"]
+    }]
+  });
+
+  assert.equal(result.selected, null);
+  assert.equal(result.evaluations[0].reason, "GOVERNANCE_REJECTED");
+  assert.deepEqual(result.evaluations[0].qualification.reasons, ["AUTHORITY"]);
 });
 
 test("Genius profile is descriptive telemetry rather than authority", () => {
