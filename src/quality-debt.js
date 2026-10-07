@@ -56,5 +56,6 @@ function unitInterval(name, value) {
 }
 
 function clamp(value) {
-  return Math.min(1, Math.max(0, value));
+  const clamped = Math.min(1, Math.max(0, value));
+  return Math.round((clamped + Number.EPSILON) * 1e9) / 1e9;
 }
